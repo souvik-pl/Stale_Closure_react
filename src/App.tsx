@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import HeavyComponent from "./HeavyComponent/HeavyComponent";
+import { HeavyComponentMemoized } from "./HeavyComponent/HeavyComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <button onClick={updateCount}>Update count</button>
-      <HeavyComponent clickHandler={heavyComponentHandler} />
+      <HeavyComponentMemoized clickHandler={heavyComponentHandler} />
     </>
   );
 }

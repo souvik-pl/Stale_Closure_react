@@ -1,3 +1,4 @@
+import React from "react";
 
 function HeavyComponent(props: { clickHandler: () => void }) {
     console.log("Heavy component renders");
@@ -9,4 +10,4 @@ function HeavyComponent(props: { clickHandler: () => void }) {
     )
 }
 
-export default HeavyComponent;
+export const HeavyComponentMemoized = React.memo(HeavyComponent);
