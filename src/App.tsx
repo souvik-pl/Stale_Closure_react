@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import HeavyComponent from "./HeavyComponent/HeavyComponent";
 
 function App() {
@@ -6,9 +6,9 @@ function App() {
 
   console.log("App renders");
 
-  const heavyComponentHandler = () => {
+  const heavyComponentHandler = useCallback(() => {
     console.log(count);
-  };
+  }, []);
 
   const updateCount = () => {
     setCount(count + 1);
