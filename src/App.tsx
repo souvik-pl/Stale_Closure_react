@@ -1,14 +1,21 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { HeavyComponentMemoized } from "./HeavyComponent/HeavyComponent";
 
 function App() {
   const [count, setCount] = useState(0);
+  const ref = useRef<() => void>();
 
   console.log("App renders");
 
+  useEffect(() => {
+    ref.current = () => {
+      console.log(count);
+    }
+  }, [count])
+
   const heavyComponentHandler = useCallback(() => {
-    console.log(count);
-  }, [count]);
+    ref.current!();
+  }, []);
 
   const updateCount = () => {
     setCount(count + 1);
