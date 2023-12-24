@@ -8,7 +8,7 @@ function App() {
 
   const heavyComponentHandler = useCallback(() => {
     console.log(count);
-  }, []);
+  }, [count]);
 
   const updateCount = () => {
     setCount(count + 1);
